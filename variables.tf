@@ -16,6 +16,24 @@ variable "bucket_name" {
   type        = string
 }
 
+variable "force_destroy" {
+  default     = true
+  description = "force_destroy orgin bucket. Defaults is true"
+  type        = bool
+}
+
+variable "prevent_destroy" {
+  default     = false
+  description = "prevent_destroy lifecycle . Defaults is false"
+  type        = bool
+}
+
+variable "versioning" {
+  default     = false
+  description = "versioning bucket. Defaults is false"
+  type        = bool
+}
+
 variable "comment" {
   default     = ""
   description = "Any comments you want to include about the distribution."
