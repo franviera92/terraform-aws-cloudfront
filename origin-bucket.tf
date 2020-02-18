@@ -2,7 +2,7 @@ resource "aws_s3_bucket" "origin" {
   bucket = local.bucket_name
   force_destroy = var.force_destroy
   lifecycle {
-    prevent_destroy = var.prevent_destroy
+    prevent_destroy = false
   }
   logging {
     target_bucket = data.aws_s3_bucket.log_bucket.id
