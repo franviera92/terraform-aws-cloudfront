@@ -1,7 +1,8 @@
 resource "aws_s3_bucket" "origin" {
   bucket = local.bucket_name
+  force_destroy = var.force_destroy
   lifecycle {
-    prevent_destroy = true
+    prevent_destroy = var.prevent_destroy
   }
   logging {
     target_bucket = data.aws_s3_bucket.log_bucket.id
@@ -16,7 +17,7 @@ resource "aws_s3_bucket" "origin" {
   }
   tags = local.tags
   versioning {
-    enabled = true
+    enabled = var.versioning
   }
 }
 
